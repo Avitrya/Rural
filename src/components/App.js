@@ -2,6 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
+import Header from './Header';
 import Blog from './Rural/Blog';
 import Login from './Rural/Login';
 import Product from './Rural/Product';
@@ -13,7 +14,7 @@ const App = () => {
         <div className="ui container">
           <BrowserRouter>
             <div>
-              {/* <Header /> */}
+              <Header />
               <Route path="/" exact component={LandingPage} />
               <Route path="/login" exact component={Login} />
               <Route path="/blog" exact component={Blog} />
