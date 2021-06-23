@@ -12,9 +12,17 @@ import FeaturedPost from './BlogDir/FeaturedPost';
 import Main from './BlogDir/Main';
 import Sidebar from './BlogDir/Sidebar';
 import Footer from './BlogDir/Footer';
-import post1 from './BlogDir/blog-post1.md';
-import post2 from './BlogDir/blog-post2.md';
-import post3 from './BlogDir/blog-post3.md';
+import post1 from './BlogDir/blog-post.1.md';
+import post2 from './BlogDir/blog-post.2.md';
+import post3 from './BlogDir/blog-post.3.md';
+
+/*fetch(post1)
+  .then(response => response.text())
+  .then(text => {
+    // Logs a string of Markdown content.
+    // Now you could use e.g. <rexxars/react-markdown> to render it.
+    console.log(text);
+  });*/
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -50,7 +58,7 @@ const featuredPosts = [
   },
 ];
 
-const posts = [post1, post2, post3];
+const posts = [post1,post2,post3];
 
 const sidebar = {
   title: 'About',
