@@ -30,58 +30,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Text",
-  image: 'https://source.unsplash.com/random',
-  imgText: 'main image description',
-  linkText: 'Continue reading…',
-};
-
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'Text',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'Text',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
-  },
-];
-
-const posts = [post1,post2,post3];
-
-const sidebar = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-  archives: [
-    { title: 'March 2021', url: '#' },
-    { title: 'February 2021', url: '#' },
-    { title: 'January 2021', url: '#' },
-    { title: 'November 2021', url: '#' },
-    { title: 'October 2021', url: '#' },
-    { title: 'September 2021', url: '#' },
-    { title: 'August 2021', url: '#' },
-    { title: 'July 2021', url: '#' },
-    { title: 'June 2021', url: '#' },
-    { title: 'May 2021', url: '#' },
-    { title: 'April 2021', url: '#' },
-  ],
-  social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'Twitter', icon: TwitterIcon },
-    { name: 'Facebook', icon: FacebookIcon },
-  ],
 };
 
 export default function Blog() {
