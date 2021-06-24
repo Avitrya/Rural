@@ -1,5 +1,6 @@
 import React from 'react';
 import Villages from './Villages';
+import Select from 'react-select';
 class Product extends React.Component {
     
     constructor(props) {
@@ -8,28 +9,25 @@ class Product extends React.Component {
             selectedState : null,
             isStatePresent: false
         };
+        this.states = ["Karnataka", "Tamil Nadu", "Telangana", "Gujarat", "Assam", "Jammu Kashmir", "Orissa" ];
+        this.handleChange = this.handleChange.bind(this)
     }
-    handleStateChange(e){
+    handleChange(e){
+        console.log(e.value);
         this.setState({
-            selectedState : e.target.value,
+            selectedState : e.value,
             isStatePresent : true
-        }) 
+        });
     }
     render() {
         console.log(this.state.isStatePresent);
         console.log(this.state.selectedState);
+        var StateList = [];
+        this.states.forEach(element => { StateList.push({label: element, value : element})});
         return (
                 <div>
-                    <select id="States" multiple="" className="ui fluid dropdown"
-                    onChange = {(e) => {this.handleStateChange(e)}}>
-                        <option value="TN">Tamil Nadu</option>
-                        <option value="Telangana">Telangana</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Gujarat">Gujarat</option>
-                        <option value="Assam">Assam</option>
-                        <option value="Jammu Kashmir">Jammu Kashmir</option>
-                        <option value="Orissa">Orissa</option>
-                    </select>
+                    <Select id="States"  className="ui fluid dropdown" onChange={this.handleChange}
+                options={StateList}/>
                     {this.state.isStatePresent ? <Villages MyProp = {this.state.selectedState}/> : <div></div>}
                 </div>
              );

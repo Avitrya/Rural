@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import ProductLists from './ProductLists';
 
 class Villages extends React.Component {
     constructor(props){
@@ -7,6 +8,18 @@ class Villages extends React.Component {
         this.map = new Map([["Karnataka", ["Hubli", "Belakavadi", "Hoskote"]],
             ["Tamil Nadu" , ["Attur", "Sathyamangalam", "Pudukottai"]],
             ["Gujarat", ["Amreli", "Babra", "Dasada"]]]);
+        this.state = {
+            selectedVillage : null,
+            isVillagePresent: false
+        };
+        this.handleChange = this.handleChange.bind(this)
+    }
+    handleChange(e){
+        console.log(e.value);
+        this.setState({
+            selectedVillage : e.value,
+            isVillagePresent : true
+        });
     }
     render() {
         var villagesList = [];
@@ -16,8 +29,9 @@ class Villages extends React.Component {
         console.log(villagesList);
         return(
             <div>
-                <Select id="Villages"  className="ui fluid dropdown"
+                <Select id="Villages"  className="ui fluid dropdown" onChange={this.handleChange}
                 options={villagesList}/>
+                {this.state.isVillagePresent ? <ProductLists MyProp = {this.state.selectedVillage}/>  : <div></div>}
             </div>
         )
     }
