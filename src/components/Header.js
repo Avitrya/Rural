@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom';
 
 const Header = () => {
     return(
-        <div className="ui secondary pointing menu">
+        <div className="ui secondary pointing menu" style={{height: '65px'}}>
             <Link to="/" className="item">
+                <i className="home icon"></i>
                 Home
             </Link>
             <Link to="/product" className="item">
@@ -16,7 +17,12 @@ const Header = () => {
                     Stories
                 </Link>
                 <Link to="/login" className="item">
-                    Login
+                    <button className="ui google plus button">
+                        Login
+                    </button>
+                </Link>
+                <Link to="/cart" className="item">
+                    <i className="shopping cart big icon"></i>
                 </Link>
             </div>
         </div>
