@@ -8,6 +8,10 @@ class Villages extends React.Component {
         this.map = new Map([["Karnataka", ["Hubli", "Belakavadi", "Hoskote"]],
             ["Tamil Nadu" , ["Attur", "Sathyamangalam", "Pudukottai"]],
             ["Gujarat", ["Amreli", "Babra", "Dasada"]],
+            ["Telangana", ["Narsapur (Buzurg)", "Andholi", "Ghatti"]],
+            ["Orissa", ["Balibahal", "Atanaka"]],
+            ["Assam", ["Sualkuchi", "Baksa", "Salmara-Mankachar"]],
+            ["Jammu Kashmir", ["Kulgam", "Duru", "Sopore"]],
             ["West Bengal", ["Panchmura", "Junput", "Rimbick"]]]);
         this.state = {
             selectedVillage : null,
@@ -30,6 +34,7 @@ class Villages extends React.Component {
         console.log(villagesList);
         return(
             <div>
+                <br />
                 <Select id="Villages"  className="ui fluid dropdown" onChange={this.handleChange}
                 options={villagesList}/>
                 {this.state.isVillagePresent ? <ProductLists MyProp = {this.state.selectedVillage}/>  : <div></div>}

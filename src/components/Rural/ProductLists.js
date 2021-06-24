@@ -1,214 +1,166 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 
-class ProductLists extends React.Component {
-    constructor(props){
-        super(props);
-        this.location = props.MyProp
+const PAGE_PRODUCTS = 'products';
+const PAGE_CART = 'cart';
+
+const ProductLists = (props) => {
+
+    const [cart, setCart] = useState([]);
+    const [page, setPage] = useState(PAGE_PRODUCTS);
+
+    const [products1] = useState([
+        {
+            name: 'Terracotta Horse from Panchmura, Bengal',
+            cost: 500,
+            image: '../../images/prod1.jpeg'
+        },
+        {
+            name: 'Jaapi from Khargulli, Assam',
+            cost: 1000,
+            image: '../../images/prod2.jpeg'
+        },
+        {
+            name: 'Little Indian Elephant from Udaipur, Rajasthan',
+            cost: 2450,
+            image: '../../images/prod3.jpeg'
+        },
+        {
+            name: 'Krishna Stone Carving from Solur, Karnataka',
+            cost: 2500,
+            image: '../../images/prod4.jpeg'
+        },
+        {
+            name: ' Wooden Kerala Boat from Vengoor, Kerala ',
+            cost: 250,
+            image: '../../images/prod5.jpeg'
+        },
+        {
+            name: 'Coir and Cane Floor mats from Kollam, Kerala',
+            cost: 250,
+            image: '../../images/prod6.jpeg'
+        },
+        {
+            name: 'Kathakali Mask from Kalady, Kerala',
+            cost: 2450,
+            image: '../../images/prod7.jpeg'
+        },
+        {
+            name: 'Sandalwood War Elephant from Mysore, Karnataka',
+            cost: 10000,
+            image: '../../images/prod8.jpeg'
+        },
+        {
+            name: 'Bamboo and Cane baskets from Birbhum, West Bengal',
+            cost: 200,
+            image: '../../images/prod9.jpeg'
+        }
+    ])
+
+    const addToCart = (product) => {
+        console.log('We are in add to cart');
+        setCart([...cart, {...product}]);
     }
-    render(){
-        return(
-            <div>
-                <br/>
-                <h3 className="ui header">Products from {this.location}</h3>
-                <br/>
-                <section className="cards">
-                <div className="ui three column grid">
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod1.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header">Terracotta Horse from Panchmura, Bengal </a>
-                            </div>
-                            <div className="content" style={{ backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 500/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
+    
+    const removefromCart = (productToRemove) => {
+        setCart(cart.filter(product => product!=productToRemove))
+    }
+
+    const getCartValue = () => {
+        let value = 0;
+        cart.map((product,idx) => {
+            value = value + product.cost;
+        })
+        return value;
+    }
+    const renderProducts = () => (
+        <>
+       
+            {products1.map((product, idx) => (
+             
+                    <div className="ui fluid card" key ={idx} style={{ width: '385px', backgroundColor: 'transparent' }}>
+                        <div className="image">
+                            <img src={product.image} style={{ height: '400px' }} />
+                        </div>
+                        <div className="content" style={{ textAlign: 'justify', backgroundColor: 'lightblue' }}>
+                            <a className="header">{product.name} </a>
+                        </div>
+                        <div className="content" style={{ backgroundColor: 'lightblue' }}>
+                            <a className="header" style={{ float: 'left' }}> {product.cost}</a>
+                            <div className="ui vertical animated button" tabindex="0" style={{ float: 'right' }} >
+                                <button onClick={() => addToCart(product)}> Add to Cart</button>
                             </div>
                         </div>
                     </div>
+          
+                
+            ))}
+           
+            
+     
+    </>
+    );
 
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod2.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header">Jaapi from Khargulli, Assam </a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 1000/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
-                            </div>
+    const renderCart = () => (
+
+        <>
+         <div>
+        {cart.map((product, idx) => (
+                <div className="column" key={idx}>
+                    <div className="ui fluid card" style={{ width: '385px', backgroundColor: 'transparent' }}>
+                        
+                        <div className="content" style={{ textAlign: 'justify', backgroundColor: 'lightblue' }}>
+                            <a className="header">{product.name} </a>
                         </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod3.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header">Little Indian Elephant from Udaipur, Rajasthan</a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 2450/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
+                        <div className="content" style={{ backgroundColor: 'lightblue' }}>
+                            <a className="header" style={{ float: 'left' }}> {product.cost}</a>
+                            <div className="ui vertical animated button" tabindex="0" style={{ float: 'right' }} >
+                            <button onClick={() => removefromCart(product)}> Remove from Cart</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <br/>
-            <br/>
-            <section className="cards">
-            <div className="ui three column grid">
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod4.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify' , backgroundColor:'lightblue'}}>
-                                <a className="header">Krishna Stone Carving from Solur, Karnataka </a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 2500/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod5.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header"> Wooden Kerala Boat from Vengoor, Kerala </a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 250/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod6.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header">Coir and Cane Floor mats from Kollam, Kerala</a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 250/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <br/>
-            <br/>
-
-            <section className="cards">
-            <div className="ui three column grid">
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod7.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header">Kathakali Mask from Kalady, Kerala </a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 200/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod8.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header"> Sandalwood War Elephant from Mysore, Karnataka </a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 10000/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="ui fluid card" style={{width: '385px', backgroundColor: 'transparent'}}>
-                            <div className="image">
-                                <img src="../../images/prod9.jpeg" style={{height: '400px'}}/>
-                            </div>
-                            <div className="content" style={{textAlign:'justify', backgroundColor:'lightblue'}}>
-                                <a className="header">Bamboo and Cane baskets from Birbhum, West Bengal</a>
-                            </div>
-                            <div className="content" style={{backgroundColor:'lightblue'}}>
-                                <a className="header" style={{float:'left'}}> 200/- </a>
-                                <div class="ui vertical animated button" tabindex="0" style={{float:'right'}} >
-                                <div class="hidden content">Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            ))}
+             <h1> Total cart Value= {getCartValue()}</h1>
             </div>
-        )
+        </>
+    );
+
+    const navigateTo = (nextPage) => {
+        setPage(nextPage);
     }
+    
+
+    return (
+        <div>
+            <div>
+                <br />
+                <h3 style={{ float: 'right' }}>Products from {props["MyProp"]}</h3>
+                <br />
+            </div>
+
+            <header>
+                <button onClick={() => navigateTo(PAGE_CART)}> Go to cart ({cart.length})</button>
+                <button onClick={() => navigateTo(PAGE_PRODUCTS)}> View Products</button>
+            </header>
+            <div>
+                <br />
+                <br />
+                <br />
+                
+                {page === PAGE_PRODUCTS && renderProducts()}
+                {page === PAGE_CART && renderCart()}
+
+
+            </div>
+            <br />
+
+
+
+        </div>
+
+    )
 }
+
 
 export default ProductLists;
