@@ -7,7 +7,8 @@ class Villages extends React.Component {
         super(props);
         this.map = new Map([["Karnataka", ["Hubli", "Belakavadi", "Hoskote"]],
             ["Tamil Nadu" , ["Attur", "Sathyamangalam", "Pudukottai"]],
-            ["Gujarat", ["Amreli", "Babra", "Dasada"]]]);
+            ["Gujarat", ["Amreli", "Babra", "Dasada"]],
+            ["West Bengal", ["Panchmura", "Junput", "Rimbick"]]]);
         this.state = {
             selectedVillage : null,
             isVillagePresent: false

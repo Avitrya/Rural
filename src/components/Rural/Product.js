@@ -9,7 +9,7 @@ class Product extends React.Component {
             selectedState : null,
             isStatePresent: false
         };
-        this.states = ["Karnataka", "Tamil Nadu", "Telangana", "Gujarat", "Assam", "Jammu Kashmir", "Orissa" ];
+        this.states = ["Karnataka", "Tamil Nadu", "Telangana", "Gujarat", "Assam", "Jammu Kashmir", "Orissa", "West Bengal" ];
         this.handleChange = this.handleChange.bind(this)
     }
     handleChange(e){
