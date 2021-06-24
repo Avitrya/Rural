@@ -1,0 +1,43 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import Markdown from './Markdown';
+import post1 from './blog-post.1.md';
+
+const useStyles = makeStyles((theme) => ({
+  markdown: {
+    ...theme.typography.body2,
+    padding: theme.spacing(3, 0),
+  },
+}));
+
+export default function Main(props) {
+  const classes = useStyles();
+  const { posts, title } = props;
+  console.log(props);
+
+const str = '# Sample blog post\n#### June 2021 by [404 Found!](/)\nSed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\nAenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.\nSed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.\nCurabitur blandit tempus porttitor. **Nullam quis risus eget urna mollis** ornare vel eu leo.\nNullam id dolor id nibh ultricies vehicula ut id elit.\nEtiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.\nAenean lacinia bibendum nulla sed consectetur.\n\nVivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.\nDuis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.\nMorbi leo risus, porta ac consectetur ac, vestibulum at eros.\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\nAenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod.\nFusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo\nsit amet risus.\n- Praesent commodo cursus magna, vel scelerisque nisl consectetur et.\n Donec id elit non mi porta gravida at eget metus.\n Nulla vitae elit libero, a pharetra augue.\nDonec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.\n1.  Vestibulum id ligula porta felis euismod semper.\n2.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n3.  Maecenas sed diam eget risus varius blandit sit amet non magna.\nCras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.'
+
+  return (
+
+    <Grid item xs={12} md={8}>
+      <Typography variant="h6" gutterBottom>
+        {title}
+      </Typography>
+      <Divider />
+        <Markdown options={{ wrapper: 'article' }}>
+          {str}
+        </Markdown>
+    </Grid>
+  );
+}
+
+
+
+Main.propTypes = {
+  posts: PropTypes.array,
+  title: PropTypes.string,
+};
