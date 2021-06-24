@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
-
+import {Link} from 'react-router-dom';
+import './ProductList.css';
 const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
 
@@ -78,17 +78,23 @@ const ProductLists = (props) => {
        
             {products1.map((product, idx) => (
              
-                    <div className="ui fluid card" key ={idx} style={{ width: '385px', backgroundColor: 'transparent' }}>
+                    <div className="ui fluid card" key ={idx} style={{ width: '385px', backgroundColor: 'transparent', marginRight: '20px'}}>
                         <div className="image">
                             <img src={product.image} style={{ height: '400px' }} />
                         </div>
-                        <div className="content" style={{ textAlign: 'justify', backgroundColor: 'lightblue' }}>
+                        <div className="content" style={{ textAlign: 'center', backgroundColor: 'rgb(212, 169, 131)' }}>
                             <a className="header">{product.name} </a>
                         </div>
-                        <div className="content" style={{ backgroundColor: 'lightblue' }}>
-                            <a className="header" style={{ float: 'left' }}> {product.cost}</a>
-                            <div className="ui vertical animated button" tabindex="0" style={{ float: 'right' }} >
-                                <button onClick={() => addToCart(product)}> Add to Cart</button>
+                        <div className="content" style={{ backgroundColor: 'peachpuff' }}>
+                            <a className="header" style={{ float: 'left', marginTop:'10px' }}> ${product.cost}</a>
+                            <div >
+                                <div class="ui right floated google plus vertical animated button" tabindex="0">
+                                    <div class="hidden content" onClick={() => addToCart(product)}>Shop</div>
+                                    <div class="visible content">
+                                        <i class="shop icon"></i>
+                                    </div>
+                                </div>
+                                {/* <button className="ui right floated google plus button" onClick={() => addToCart(product)}> Add to Cart</button> */}
                             </div>
                         </div>
                     </div>
@@ -101,27 +107,55 @@ const ProductLists = (props) => {
     </>
     );
 
+    const renderPrice = () => {
+        return(
+            <div>
+            <div className="ui bottom attached warning compact message" style={{display:'flex', justifyContent:'center'}}>
+                <h3> Total cart Value= ${getCartValue()}</h3>
+            </div>
+            <br />
+            <br />
+            <Link to="/cart" className="item">
+                <button className="ui right floated google plus button">
+                    Proceed For Checkout
+                </button>
+            </Link>
+            </div>
+        );
+    };
+
     const renderCart = () => (
 
         <>
          <div>
         {cart.map((product, idx) => (
-                <div className="column" key={idx}>
-                    <div className="ui fluid card" style={{ width: '385px', backgroundColor: 'transparent' }}>
+                <div className="column" style={{ width: '500px', marginBottom:'10px'}} key={idx}>
+                    <div className="ui fluid card card-display" style={{backgroundColor: 'transparent', marginRight: '20px' }}>
                         
-                        <div className="content" style={{ textAlign: 'justify', backgroundColor: 'lightblue' }}>
+                        <div className="content" style={{ textAlign: 'center', backgroundColor: 'rgb(212, 169, 131)' }}>
                             <a className="header">{product.name} </a>
                         </div>
-                        <div className="content" style={{ backgroundColor: 'lightblue' }}>
-                            <a className="header" style={{ float: 'left' }}> {product.cost}</a>
-                            <div className="ui vertical animated button" tabindex="0" style={{ float: 'right' }} >
-                            <button onClick={() => removefromCart(product)}> Remove from Cart</button>
-                            </div>
+                        <div className="content" style={{ backgroundColor: 'peachpuff'}}>
+                            <a className="header" style={{ float: 'left', marginTop:'10px' }}> ${product.cost}</a>
+                            <button className="ui right floated google plus button" onClick={() => removefromCart(product)}> Remove from Cart</button>
                         </div>
                     </div>
                 </div>
+                
             ))}
-             <h1> Total cart Value= {getCartValue()}</h1>
+            <br />
+            <br />
+            {getCartValue()===0 ? 
+                <div className="ui bottom attached warning compact message" style={{textAlign:'center'}} >
+                    <h2>
+                        Your cart feels so light!
+                    </h2>
+                    <h3>
+                        Go to the products page to select your favorite items!
+                    </h3>
+                </div> : 
+                renderPrice()
+            }
             </div>
         </>
     );
@@ -135,15 +169,25 @@ const ProductLists = (props) => {
         <div>
             <div>
                 <br />
-                <h3 style={{ float: 'right' }}>Products from {props["MyProp"]}</h3>
                 <br />
             </div>
 
             <header>
-                <button onClick={() => navigateTo(PAGE_CART)}> Go to cart ({cart.length})</button>
-                <button onClick={() => navigateTo(PAGE_PRODUCTS)}> View Products</button>
+                <button 
+                    className="ui right floated google plus button" 
+                    onClick={() => navigateTo(PAGE_CART)}
+                > 
+                    <i className="shopping cart icon"></i> 
+                        Go to cart ({cart.length})
+                </button>
+                <button 
+                    className="ui right floated google plus button" 
+                    onClick={() => navigateTo(PAGE_PRODUCTS)}
+                > 
+                        View Products
+                </button>
             </header>
-            <div>
+            <div className="products">
                 <br />
                 <br />
                 <br />

@@ -21,9 +21,6 @@ const Header = () => {
                         Login
                     </button>
                 </Link>
-                <Link to="/cart" className="item">
-                    <i className="shopping cart big icon"></i>
-                </Link>
             </div>
         </div>
     );

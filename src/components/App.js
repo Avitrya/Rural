@@ -9,7 +9,6 @@ import Login from './Rural/Login';
 import Product from './Rural/Product';
 import LandingPage from './Rural/LandingPage';
 import Checkout from './Rural/Checkout';
-import Cart from './Rural/Cart';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
@@ -40,8 +39,7 @@ const App = () => {
                 <Route path="/login" exact component={Login} />
                 <Route path="/blog" exact component={Blog} />
                 <Route path="/product" exact component={Product} />
-                <Route path="/buyer/product/:id/checkout" exact component={Checkout} />
-                <Route path="/cart" exact component={Cart} />
+                <Route path="/cart" exact component={Checkout} />
                 {/* <ContactUs /> */}
                 </div>
             </BrowserRouter>
