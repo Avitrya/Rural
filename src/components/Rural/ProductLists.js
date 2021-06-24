@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 
 class ProductLists extends React.Component {
     constructor(props){
