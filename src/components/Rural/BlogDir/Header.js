@@ -51,11 +51,11 @@ export default function Header(props) {
         </Button>
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-        {sections.map((section) => (
+        {sections.map((section, index) => (
           <Link
             color="inherit"
             noWrap
-            key={section.title}
+            key={index}
             variant="body2"
             href={section.url}
             className={classes.toolbarLink}

@@ -68,8 +68,8 @@ export default function Review() {
             Payment details
           </Typography>
           <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
+            {payments.map((payment, index) => (
+              <React.Fragment key={index}>
                 <Grid item xs={6}>
                   <Typography gutterBottom>{payment.name}</Typography>
                 </Grid>
