@@ -65,17 +65,17 @@ const sidebar = {
   description:
     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
   archives: [
-    { title: 'March 2020', url: '#' },
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
+    { title: 'March 2021', url: '#' },
+    { title: 'February 2021', url: '#' },
+    { title: 'January 2021', url: '#' },
+    { title: 'November 2020', url: '#' },
+    { title: 'October 2020', url: '#' },
+    { title: 'September 2020', url: '#' },
+    { title: 'August 2020', url: '#' },
+    { title: 'July 2020', url: '#' },
+    { title: 'June 2021', url: '#' },
+    { title: 'May 2021', url: '#' },
+    { title: 'April 2021', url: '#' },
   ],
   social: [
     { name: 'GitHub', icon: GitHubIcon },
@@ -100,7 +100,7 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="Title Story" posts={posts} />
+            <Main title="Most Viewed Post" posts={posts} />
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
@@ -110,7 +110,6 @@ export default function Blog() {
           </Grid>
         </main>
       </Container>
-      <Footer title="Footer" description="Placeholder Footer" />
     </React.Fragment>
   );
 }
