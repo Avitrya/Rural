@@ -31,30 +31,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
+  title: 'SUPPORT THE MAKERS',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random',
+    "When You support Handmade, You are not just supporting a Person, Small Business, Family,Our Economy; YOU are Purchasing a small part of an ARTIST's HEART.",
+  image: 'https://images.pexels.com/photos/3182439/pexels-photo-3182439.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
   imgText: 'main image description',
-  linkText: 'Continue reading…',
 };
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'Meenakari',
+    date: 'June 28',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
+      'Rajasthan is also known for the exquisite craft of Meenakari, an ancient form of metal ornamentation. Coloured minerals in an array of dazzling shades are fused to metal carved in intricate designs. Originally a technique devised by the Iranians, Indian craftsmen acquired the skill from the Mongols who spread the craft to the Indian subcontinent.',
+    image: 'https://images.unsplash.com/photo-1586334465687-b948bc3368be?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHJhamFzdGhhbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60',
+    
   },
   {
-    title: 'Post title',
+    title: 'Warli',
     date: 'Nov 11',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
+      'One art form that has gained visibility over the years is Warli. There is evidence that the Warli tribe, which resides in the coastal belt straddling Maharashtra and Gujarat, began practising this art around 3000 BCE. Warli is protected under Geographical Indication, a measure used to assign a technique to a particular region',
+    image: 'https://images.unsplash.com/photo-1621870536986-151d03e2e99a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2FybGl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60',
+    
   },
 ];
 
@@ -63,7 +62,7 @@ const posts = [post1, post2, post3];
 const sidebar = {
   title: 'About',
   description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+    'An effort to connect consumers directly to the source of the products they consume and their producers. Get to know the stories behind the scene.',
   archives: [
     { title: 'March 2021', url: '#' },
     { title: 'February 2021', url: '#' },
@@ -95,8 +94,8 @@ export default function Blog() {
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
+            {featuredPosts.map((post, index) => (
+              <FeaturedPost key={index} post={post} />
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>

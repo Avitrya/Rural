@@ -100,8 +100,8 @@ export default function Checkout() {
             Checkout
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
-            {steps.map((label) => (
-              <Step key={label}>
+            {steps.map((label, index) => (
+              <Step key={index}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
