@@ -34,6 +34,7 @@ class Villages extends React.Component {
         console.log(villagesList);
         return(
             <div>
+                <br />
                 <Select id="Villages"  className="ui fluid dropdown" onChange={this.handleChange}
                 options={villagesList}/>
                 {this.state.isVillagePresent ? <ProductLists MyProp = {this.state.selectedVillage}/>  : <div></div>}
