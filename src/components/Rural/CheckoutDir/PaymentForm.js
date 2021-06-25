@@ -1,8 +1,6 @@
 import React from 'react';
 import { PayPalButton } from "react-paypal-button-v2";
 
-let url="";
-
 export default function PaymentForm() {
   return (
     <PayPalButton
@@ -15,10 +13,13 @@ export default function PaymentForm() {
               return fetch("/paypal-transaction-complete", {
                 method: "post",
                 body: JSON.stringify({
-                  orderID: data.orderID
+                  orderId: data.orderID
                 })
               });
             }}
-          />
+            options={{
+              clientId: "AdWdrIWmKu_bF4IpBlXd98-juLxaT_mS7o2ZtUns9WajxJL4igCUBJ6u5Iubg1kRAfTryV9emX7zobND"
+            }}
+    />
   );
 }
