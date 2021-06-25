@@ -151,9 +151,9 @@ const ProductLists = (props) => {
             <br />
             <br />
             <br />
-            {/* <div className="ui red segment" style={{textAlign:'center'}}><h2>Would you like to opt for subscription?</h2></div>
+            <div className="ui red segment" style={{textAlign:'center'}}><h2>Would you like to opt for subscription?</h2></div>
             <br />
-            <Subscription /> */}
+            <Subscription />
             </div>
         );
     };
