@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import './ProductList.css';
+import Subscription from './CheckoutDir/Subscription';
+
 const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
+
 
 const ProductLists = (props) => {
 
     const [cart, setCart] = useState([]);
     const [page, setPage] = useState(PAGE_PRODUCTS);
-
-    const [products1] = useState([
+    const [products] = useState([]);
+    const [allProducts] = useState([
         {
             name: 'Terracotta Horse from Panchmura, Bengal',
             cost: 500,
@@ -56,9 +59,34 @@ const ProductLists = (props) => {
             image: '../../images/prod9.jpeg'
         }
     ])
+    const fillProductsForVillage = (villageName) => {
+        products.splice(0,products.length);
+        if(villageName.length % 3 === 0)
+        {
+            products.push(allProducts[0]);
+            products.push(allProducts[3]);
+            products.push(allProducts[6]);
+            products.push(allProducts[5]);    
+        }
+        else if(villageName.length % 3 ===1)
+        {
+            products.push(allProducts[1]);
+            products.push(allProducts[4]);
+            products.push(allProducts[7]);
+            products.push(allProducts[0]); 
+        }
+        else
+        {
+
+            products.push(allProducts[8]);
+            products.push(allProducts[1]);
+            products.push(allProducts[6]);
+            products.push(allProducts[3]); 
+            products.push(allProducts[5]); 
+        }
+    }
 
     const addToCart = (product) => {
-        console.log('We are in add to cart');
         setCart([...cart, {...product}]);
     }
     
@@ -76,7 +104,7 @@ const ProductLists = (props) => {
     const renderProducts = () => (
         <>
        
-            {products1.map((product, idx) => (
+            {products.map((product, idx) => (
              
                     <div className="ui fluid card" key ={idx} style={{ width: '385px', backgroundColor: 'transparent', marginRight: '20px'}}>
                         <div className="image">
@@ -88,10 +116,10 @@ const ProductLists = (props) => {
                         <div className="content" style={{ backgroundColor: 'peachpuff' }}>
                             <a className="header" style={{ float: 'left', marginTop:'10px' }}> ${product.cost}</a>
                             <div >
-                                <div class="ui right floated google plus vertical animated button" tabindex="0">
-                                    <div class="hidden content" onClick={() => addToCart(product)}>Shop</div>
-                                    <div class="visible content">
-                                        <i class="shop icon"></i>
+                                <div className="ui right floated google plus vertical animated button" >
+                                    <div className="hidden content" onClick={() => addToCart(product)}>Shop</div>
+                                    <div className="visible content">
+                                        <i className="shop icon"></i>
                                     </div>
                                 </div>
                                 {/* <button className="ui right floated google plus button" onClick={() => addToCart(product)}> Add to Cart</button> */}
@@ -120,6 +148,8 @@ const ProductLists = (props) => {
                     Proceed For Checkout
                 </button>
             </Link>
+            {/* <div>Would you like to opt for subscription?</div>
+            <Subscription /> */}
             </div>
         );
     };
@@ -191,7 +221,7 @@ const ProductLists = (props) => {
                 <br />
                 <br />
                 <br />
-                
+                {fillProductsForVillage(props["MyProp"])}
                 {page === PAGE_PRODUCTS && renderProducts()}
                 {page === PAGE_CART && renderCart()}
 
