@@ -4,7 +4,7 @@ import { PayPalButton } from "react-paypal-button-v2";
 export default function PaymentForm() {
   return (
     <PayPalButton
-            amount="0.01"
+            amount="100"
             // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
             onSuccess={(details, data) => {
               alert("Transaction completed by " + details.payer.name.given_name);
@@ -18,7 +18,8 @@ export default function PaymentForm() {
               });
             }}
             options={{
-              clientId: "AdWdrIWmKu_bF4IpBlXd98-juLxaT_mS7o2ZtUns9WajxJL4igCUBJ6u5Iubg1kRAfTryV9emX7zobND"
+              vault: true,
+              clientId: "AdavDwNP5-_FbYNQinJ6IPQhJzTQlQmqNXU3FultsauYCkJHzmzb5nlp3uy6qWxTkTqIApigZoWQ2BSm"
             }}
     />
   );

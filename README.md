@@ -1,3 +1,26 @@
+# Team 4 : 404 Found
+## Website Template
+## A New Hope
+### Brief Description : 
+We have attempted to create a platform which is based on providing a marketplace for Rural India's handicrafts and agricultural products. We have also integrated a blog like functionality where users can share stories about villages/traditions/conditions of rural India to shed some light on the background stories of the producers who toil hard to perfect each piece of art they create. 
+Components of the website integrated so far:
+### Landing Page: 
+Contains the main nav bar to navigate to other sectors.
+### Blog / Article Page:
+Conatins articles for showcasing stories. 
+### Products Page
+Can be used to filter for products from a particular state/ village. Integrated with a shopping cart.
+## APIs integrated
+### Checkout API 
+PayPal smart button has been integrated using a paypal sdk
+### Identity API
+Paypal login button has been integrated using identity api
+### Subscription API
+If the user wants to pay monthly, it has been integrated using subscription API
+
+## Tech-stack used
+React JS, Node JS, Semantic ui, Material ui, JS, Checkout API, Subscription API, Identity API
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
