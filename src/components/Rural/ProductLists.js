@@ -148,7 +148,11 @@ const ProductLists = (props) => {
                     Proceed For Checkout
                 </button>
             </Link>
-            {/* <div>Would you like to opt for subscription?</div>
+            <br />
+            <br />
+            <br />
+            {/* <div className="ui red segment" style={{textAlign:'center'}}><h2>Would you like to opt for subscription?</h2></div>
+            <br />
             <Subscription /> */}
             </div>
         );

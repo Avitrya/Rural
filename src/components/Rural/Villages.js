@@ -35,6 +35,8 @@ class Villages extends React.Component {
         return(
             <div>
                 <br />
+                <h3>Select the village from which you want to purahase the product from: </h3>
+                
                 <Select id="Villages"  className="ui fluid dropdown" onChange={this.handleChange}
                 options={villagesList}/>
                 {this.state.isVillagePresent ? <ProductLists MyProp = {this.state.selectedVillage}/>  : <div></div>}
