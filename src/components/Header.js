@@ -16,11 +16,7 @@ const Header = () => {
                 <Link to="/blog" className="item">
                     Stories
                 </Link>
-                <Link to="/login" className="item">
-                    <button className="ui google plus button">
-                        Login
-                    </button>
-                </Link>
+                <a style={{marginTop: "25px"}} href="http://localhost:63342/Rural/src/components/Rural/Loginn.html?_ijt=cbpdk3i12670h8q3u2o3p5s4hg"><button className="ui google plus button">Login</button></a>
             </div>
         </div>
     );
