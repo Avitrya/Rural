@@ -12,6 +12,7 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './CheckoutDir/AddressForm';
 import PaymentForm from './CheckoutDir/PaymentForm';
+import Subscription from './CheckoutDir/Subscription';
 import Review from './CheckoutDir/Review';
 
 function Copyright() {
@@ -71,7 +72,15 @@ function getStepContent(step) {
     case 0:
       return <AddressForm />;
     case 1:
-      return <PaymentForm />;
+      return (
+        <div>
+          <PaymentForm />
+          <br />
+          <div className="ui red segment" style={{textAlign:'center'}}><h2>Would you like to opt for subscription?</h2></div>
+          <br />
+          <Subscription />
+        </div>
+        );
     default:
       throw new Error('Unknown step');
   }

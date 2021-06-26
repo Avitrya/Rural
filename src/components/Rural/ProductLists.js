@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import './ProductList.css';
-import Subscription from './CheckoutDir/Subscription';
 
 const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
@@ -149,11 +148,7 @@ const ProductLists = (props) => {
                 </button>
             </Link>
             <br />
-            <br />
-            <br />
-            <div className="ui red segment" style={{textAlign:'center'}}><h2>Would you like to opt for subscription?</h2></div>
-            <br />
-            <Subscription />
+            
             </div>
         );
     };
