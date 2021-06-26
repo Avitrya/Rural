@@ -3,7 +3,7 @@ import React from 'react';
 
 export function PayPalBtn(props) {
     const { amount, currency, createSubscription, onApprove, catchError,onError, onCancel} = props;
-    const paypalKey = "AdavDwNP5-_FbYNQinJ6IPQhJzTQlQmqNXU3FultsauYCkJHzmzb5nlp3uy6qWxTkTqIApigZoWQ2BSm&vault=true&intent=subscription";
+    const paypalKey = process.env.CLIENT_ID;
     return (
         <PayPalButton
             amount={amount}

@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 export default function PaymentForm() {
   return (
     <PayPalButton
-            amount="10"
+            amount="1000"
             // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
             onSuccess={(details, data) => {
               //alert("Transaction completed by " + details.payer.name.given_name);

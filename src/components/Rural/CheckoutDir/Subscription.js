@@ -1,6 +1,7 @@
 import React from 'react';
 import './Subscription.css';
 import PayPalBtn from './PayPalBtn';
+import Swal from 'sweetalert2';
 
 const paypalSubscribe = (data, actions) => {
     return actions.subscription.create({
@@ -14,6 +15,9 @@ const paypalOnApprove = (data, detail) => {
 // call the backend api to store transaction details
     console.log("Payapl approved")
     console.log(data.subscriptionID)
+    
+    Swal.fire('Subscription Successful!', 'Thank you for shopping with us!', 'success');
+    
 };
 function Subscription() {
     return (
@@ -33,31 +37,6 @@ function Subscription() {
 export default Subscription;
 
 
-
-// // -----------------------------------
-// // <div id="paypal-button-container-P-6WB949741N9490633MDKWVHI"></div>
-// // <script src="https://www.paypal.com/sdk/js?client-id=AdavDwNP5-_FbYNQinJ6IPQhJzTQlQmqNXU3FultsauYCkJHzmzb5nlp3uy6qWxTkTqIApigZoWQ2BSm&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> 
-// // <script>
-// //   paypal.Buttons({
-// //       style: {
-// //           shape: 'rect',
-// //           color: 'gold',
-// //           layout: 'vertical',
-// //           label: 'subscribe'
-// //       },
-// //       createSubscription: function(data, actions) {
-// //         return actions.subscription.create({
-// //           /* Creates the subscription */
-// //           plan_id: 'P-6WB949741N9490633MDKWVHI'
-// //         });
-// //       },
-// //       onApprove: function(data, actions) {
-// //         alert(data.subscriptionID); // You can add optional success message for the subscriber here
-// //       }
-// //   }).render('#paypal-button-container-P-6WB949741N9490633MDKWVHI'); // Renders the PayPal button
-// // </script>
-
-// // ---------------------------------------------
 
 
 
