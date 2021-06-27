@@ -26,20 +26,7 @@ If the user wants to pay monthly, it has been integrated using subscription API
 React JS, Node JS, Semantic ui, Material ui, JS, Checkout API, Subscription API, Identity API
 
 ## Packages used
-@material-ui/core
-@material-ui/icons
-axios
-lodash
-markdown-to-jsx
-react
-react-paypal-button-v2
-react-router-dom
-react-scripts
-react-scroll
-react-select
-rebass
-redux-form
-sweetalert2
+@material-ui/core, @material-ui/icons, axios, lodash, markdown-to-jsx, react, react-paypal-button-v2, react-router-dom, react-scripts, react-scroll, react-select, rebass, redux-form, sweetalert2
 
 # Getting Started with Create React App
 
