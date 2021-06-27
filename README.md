@@ -10,6 +10,10 @@ Contains the main nav bar to navigate to other sectors.
 Conatins articles for showcasing stories. 
 ### Products Page
 Can be used to filter for products from a particular state/ village. Integrated with a shopping cart.
+### Cart Page
+Which will display th enumber of items in our cart and we can proceed for checkout.
+We'll have to fill address form for the items to get shipped and then we can proceed for checkout/ subscription accordingly using our apis.
+
 ## APIs integrated
 ### Checkout API 
 PayPal smart button has been integrated using a paypal sdk
@@ -20,6 +24,22 @@ If the user wants to pay monthly, it has been integrated using subscription API
 
 ## Tech-stack used
 React JS, Node JS, Semantic ui, Material ui, JS, Checkout API, Subscription API, Identity API
+
+## Packages used
+@material-ui/core
+@material-ui/icons
+axios
+lodash
+markdown-to-jsx
+react
+react-paypal-button-v2
+react-router-dom
+react-scripts
+react-scroll
+react-select
+rebass
+redux-form
+sweetalert2
 
 # Getting Started with Create React App
 
