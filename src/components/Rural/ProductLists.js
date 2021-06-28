@@ -135,6 +135,7 @@ const ProductLists = (props) => {
     );
 
     const renderPrice = () => {
+        //console.log(getCartValue());
         return(
             <div>
             <div className="ui bottom attached warning compact message" style={{display:'flex', justifyContent:'center'}}>
@@ -142,7 +143,12 @@ const ProductLists = (props) => {
             </div>
             <br />
             <br />
-            <Link to="/cart" className="item">
+            <Link to={{
+                pathname: "/cart",
+                aboutProps: {
+                    amount : getCartValue() ,
+                    },
+                }} className="item">
                 <button className="ui right floated google plus button">
                     Proceed For Checkout
                 </button>

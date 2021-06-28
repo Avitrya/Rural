@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -13,9 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './CheckoutDir/AddressForm';
 import PaymentForm from './CheckoutDir/PaymentForm';
 import Subscription from './CheckoutDir/Subscription';
-import Review from './CheckoutDir/Review';
 
 function Copyright() {
+
+  
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -67,18 +66,19 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ['Shipping address', 'Payment'];
 
-function getStepContent(step) {
+function getStepContent(step, amount) {
+  console.log(amount);
   switch (step) {
     case 0:
       return <AddressForm />;
     case 1:
       return (
         <div>
-          <PaymentForm />
+          <PaymentForm amount={amount}/>
           <br />
           <div className="ui red segment" style={{textAlign:'center'}}><h2>Would you like to opt for subscription?</h2></div>
           <br />
-          <Subscription />
+          <Subscription amount={amount} />
         </div>
         );
     default:
@@ -86,7 +86,9 @@ function getStepContent(step) {
   }
 }
 
-export default function Checkout() {
+export default function Checkout(props) {
+  const {amount} = props.location.aboutProps;
+  //console.log("Amount", amount);
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -126,7 +128,7 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {getStepContent(activeStep, amount)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>

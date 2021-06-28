@@ -17,11 +17,12 @@ const paypalOnApprove = (data, detail) => {
     Swal.fire('Subscription Successful!', 'Thank you for shopping with us! Your Order ID is: ' + data.orderID , 'success')
     
 };
-function Subscription() {
+function Subscription(props) {
+    console.log(props.amount);
     return (
         <div className="App">
             <PayPalBtn
-                amount = "50"
+                amount = {props.amount}
                 currency = "USD"
                 createSubscription={paypalSubscribe}
                 onApprove={paypalOnApprove}
