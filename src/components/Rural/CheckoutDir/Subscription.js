@@ -14,7 +14,7 @@ const paypalOnError = (err) => {
 const paypalOnApprove = (data, detail) => {
 // call the backend api to store transaction details
     console.log("Paypal approved")
-    Swal.fire('Subscription Successful!', 'Thank you for shopping with us! Your Order ID is: ' + data.orderID , 'success')
+    Swal.fire('Subscription Successful!', 'Thank you for shopping with us! Your Order ID is: ' + data.orderID , 'success').then(function (result) { if (result.value) { window.location = "/"; } })
     
 };
 function Subscription(props) {
