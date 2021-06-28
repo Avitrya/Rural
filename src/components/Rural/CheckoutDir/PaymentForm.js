@@ -9,7 +9,7 @@ export default function PaymentForm() {
             // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
             onSuccess={(details, data) => {
               //alert("Transaction completed by " + details.payer.name.given_name);
-              Swal.fire('Payment Successful!', 'Thank you for shopping with us!', 'success')
+              Swal.fire('Payment Successful!', 'Thank you for shopping with us, ' + details.payer.name.given_name +'!\nYour order details have been sent to ' + details.payer.email_address + ".\n Your Order ID is: " + data.orderID + ".", 'success').then(function (result) { if (result.value) { window.location = "http://quiet-brushlands-83332.herokuapp.com/"; } })
 
               // OPTIONAL: Call your server to save the transaction
               return fetch("/paypal-transaction-complete", {
