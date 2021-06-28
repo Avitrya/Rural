@@ -3,7 +3,7 @@ import React from 'react';
 const Login = () => {
     return(
         <div>
-            <h2 style={{textAlign:'center'}}>Welcome to 'A New Hope!'</h2>
+            <h2 style={{textAlign:'center'}}>Welcome to 'A New Hope'!</h2>
         </div>
     )
     // return (
