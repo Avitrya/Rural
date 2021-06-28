@@ -18,7 +18,7 @@ We'll have to fill address form for the items to get shipped and then we can pro
 ### Checkout API 
 PayPal smart button has been integrated using a paypal sdk
 ### Identity API
-Paypal login button has been integrated using identity api
+Paypal login button has been integrated using identity api(tried this but was getting some error)
 ### Subscription API
 If the user wants to pay monthly, it has been integrated using subscription API
 

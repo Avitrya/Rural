@@ -6,15 +6,10 @@ import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import Header from './BlogDir/Header';
 import MainFeaturedPost from './BlogDir/MainFeaturedPost';
 import FeaturedPost from './BlogDir/FeaturedPost';
 import Main from './BlogDir/Main';
 import Sidebar from './BlogDir/Sidebar';
-import Footer from './BlogDir/Footer';
-import post1 from './BlogDir/blog-post.1.md';
-import post2 from './BlogDir/blog-post.2.md';
-import post3 from './BlogDir/blog-post.3.md';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -49,7 +44,6 @@ const featuredPosts = [
   },
 ];
 
-const posts = [post1, post2, post3];
 
 const sidebar = {
   title: 'About',
@@ -91,7 +85,7 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="Most Viewed Post" posts={posts} />
+            <Main title="Most Viewed Post"  />
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
